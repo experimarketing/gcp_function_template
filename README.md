@@ -9,9 +9,14 @@ Commands:
 ```
 gcloud config set project yourProjectNameHere
 ```
+- If you want to check your project: 
+```
+gcloud config get-value project
+```
+
 - Compile typescript
 ```
-npm run tsc
+tsc
 ```
 - Deploy the function
 ```
