@@ -19,6 +19,16 @@ tsc
 ```
 - Deploy the function with low memory of 512MB
 ```
+// load the environment variables from your .env.dev file
+Get-Content .env.dev | ForEach-Object {
+    $name, $value = $_ -split '='
+    [System.Environment]::SetEnvironmentVariable($name, $value)
+}
+
+// Use these variables when deploying
+$envVars = (Get-Content .env.dev) -join ','
+
+
 gcloud functions deploy yourWebhookNameHere `
     --gen2 `
     --runtime=nodejs18 `
@@ -27,10 +37,21 @@ gcloud functions deploy yourWebhookNameHere `
     --allow-unauthenticated `
     --entry-point=entryPoint `
     --memory=512MB `
-    --timeout=60s
+    --timeout=60s `
+    --set-env-vars $envVars
+
 ```
 - Redeploy the function with 1GB, 2GB, 4GB, and test response times in Postman. The purpose of this is to determine what the optimal memory configuration is for the machine, based on projected use, projected costs, and user experience. Example with 2GB
 ```
+// load the environment variables from your .env.dev file
+Get-Content .env.dev | ForEach-Object {
+    $name, $value = $_ -split '='
+    [System.Environment]::SetEnvironmentVariable($name, $value)
+}
+
+// Use these variables when deploying
+$envVars = (Get-Content .env.dev) -join ','
+
 gcloud functions deploy yourWebhookNameHere `
     --gen2 `
     --runtime=nodejs18 `
@@ -39,7 +60,8 @@ gcloud functions deploy yourWebhookNameHere `
     --allow-unauthenticated `
     --entry-point=entryPoint `
     --memory=2GB `
-    --timeout=60s
+    --timeout=60s `
+    --set-env-vars $envVars
 ```
 
 

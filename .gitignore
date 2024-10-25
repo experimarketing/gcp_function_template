@@ -24,9 +24,10 @@ dist-ssr
 *.sw?
 
 .env
+.env.test
 .env.dev
-.env.prod
 .env.staging
+.env.prod
 
 .firebase/hosting.ZGlzdA.cache
 
