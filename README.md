@@ -55,9 +55,11 @@ exports.entryPoint = app;
 
 4. You have removed any unused packages from the package.json.
 
-5. You have no dependencies that should be dev dependencies only.
+5. You have no dependencies that should be dev dependencies only. (Meaning, you forgot to make them dev only.)
 
 6. You must test 512MB, 1GB, 2GB, 4GB response speeds. Report your results in the ``ResponseTimes.md`` file.
+
+7. If you add any packages, you must list the license for that dependency. If not MIT, BSD, Apache 2.0, Unlicense, CCO, Zlib, ISC, you must request permission before using that dependency.
 
 ## Notes
 - Do not have multiple routes on the same endpoint, that do not share the same libraries.
