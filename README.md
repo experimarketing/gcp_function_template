@@ -63,6 +63,9 @@ gcloud functions deploy yourWebhookNameHere `
     --timeout=60s `
     --set-env-vars $envVars
 ```
+You cannot set concurrency on a deployment with less than 2GB of memory.
+
+You can test the function under load, by sending a bunch of requests at once and monitoring the stats in the function's metrics dashboard.
 
 
 
